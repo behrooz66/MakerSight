@@ -49,6 +49,30 @@ info: Microsoft.Hosting.Lifetime[0]
       Content root path: /home/behrooz/projects/MakerSight/MakerSight.API/
 ```
 
-Note that there are two endpoints provided, with and without HTTPS. Depending on your OS you may be asked to accept the self signed certificate or continue "at your own risk" through the browser, or you may just be able to use the non-secured endpoint.
+Note that there are two endpoints provided, with and without HTTPS (Port number will vary on your machine). Depending on your OS you may be asked to accept the self signed certificate or continue "at your own risk" through the browser, or you may just be able to use the non-secured endpoint.
 
 By navigating to `http://localhost:{PORT}/swagger` you will get a simple UI presenting the available APIs.
+
+### Notes
+
+Two endpoints have been implemented inside the `ProductsController.cs`, and some comments have been left near the end of it regarding the other endpoints that could be added.
+## Database & Seed Data
+In order to ease the delivery of this assignment and eliminate the dependency to an actual database, an "In-Memory" database has been used. 
+Inside `./MakerSight.API/Infrastructure/SeedDataCreator.cs` file, you will find a set of hard coded Guids for both `Brand` and `Product` entities used across the application.
+
+In case you plan to test out the APIs yourself, you can use those to your advantage, for example a GET request to the following endpoint will return the relevant products:
+```
+https://localhost:{PORT}/brand/17cff5bb-3f4c-4676-ab1b-a177fd9aca25/products
+```
+
+## Observations
+I have some observations and had there been enough time, they could be dived into a bit deeper, which I present in the following.
+### Data Volume
+The implemented endpoint for return all products of a certain brand assumes all filtering and pagination occures on the frontend, hence only filtering by brand. In case of potentially massive data, that would be inefficient and serverside filtering and pagination needs to be added. 
+Filtering criteria could also a quite fluid subject and it would to be thought out based on the specifics (possibly filtering by price, creation date, etc.)
+
+### Parent/Child Products
+As seen in `./MakerSight.Domain/Product.cs`, the product entity has been defined to allow a parent-child relationship within itself by proving a nullable self-reference. This, while allows for the requirement specified in the assignment, also allows for multi-level hierarchy in the future, should the requirements change. It will also call for careful error handling from the developers; and had there been more time, I could have thought of implementing it differently.
+
+
+
