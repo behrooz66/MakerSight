@@ -1,7 +1,12 @@
 # MakerSight Assignment
 
 ## Requirements
-.Net version 6.0 was used for developing this code base. Please make sure the .Net SDK for that version is intalled on your machine in order to successfully run this application. Use the following command to ensure your .Net Version:
+.Net SDK version 6.0 was used for developing this code base. Please make sure the .Net SDK for that version is intalled on your machine in order to successfully run this application. Depending on your OS, download the relevant SDK installers from here:
+```
+https://dotnet.microsoft.com/en-us/download/dotnet/6.0
+```
+
+Use the following command to ensure your .Net Version:
 ```
 dotnet --version
 ```
@@ -49,7 +54,7 @@ info: Microsoft.Hosting.Lifetime[0]
       Content root path: /home/behrooz/projects/MakerSight/MakerSight.API/
 ```
 
-**Important**: Note that there are two endpoints provided, with and without HTTPS (Port number will vary on your machine). Depending on your OS you may be asked to accept the self signed certificate or continue "at your own risk" through the browser.
+**Important**: Note that there are two endpoints provided, with and without HTTPS (Port number will vary on your machine). However, if you navigate to those urls using browser, you will likely get a security related error message, as it is just using a self signed token. Your browser allows you to choose to proceed despite the "risk", so please make sure you do that to continue.
 
 By navigating to `http://localhost:{PORT}/swagger` you will get a simple UI presenting the available APIs.
 
@@ -81,4 +86,4 @@ Due to lack of time, I have taken a simplified path of treating images just as u
 If each brand has its own properties, we could have an entity (aka DB table) called `BrandProperty` in which we could have a one-to-many relationship between a brand and its own set of properties. Then another entity, called `ProductProperty` where each property can set individual properties, based on what properties are available to it according to the product's brand.
 
 I will include a simple ERD diagram in my submission email.
- 
+
