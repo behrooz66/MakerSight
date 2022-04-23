@@ -49,7 +49,7 @@ info: Microsoft.Hosting.Lifetime[0]
       Content root path: /home/behrooz/projects/MakerSight/MakerSight.API/
 ```
 
-Note that there are two endpoints provided, with and without HTTPS (Port number will vary on your machine). Depending on your OS you may be asked to accept the self signed certificate or continue "at your own risk" through the browser, or you may just be able to use the non-secured endpoint.
+**Important**: Note that there are two endpoints provided, with and without HTTPS (Port number will vary on your machine). Depending on your OS you may be asked to accept the self signed certificate or continue "at your own risk" through the browser.
 
 By navigating to `http://localhost:{PORT}/swagger` you will get a simple UI presenting the available APIs.
 
@@ -74,5 +74,11 @@ Filtering criteria could also a quite fluid subject and it would to be thought o
 ### Parent/Child Products
 As seen in `./MakerSight.Domain/Product.cs`, the product entity has been defined to allow a parent-child relationship within itself by proving a nullable self-reference. This, while allows for the requirement specified in the assignment, also allows for multi-level hierarchy in the future, should the requirements change. It will also call for careful error handling from the developers; and had there been more time, I could have thought of implementing it differently.
 
+### Images
+Due to lack of time, I have taken a simplified path of treating images just as urls to a presumably publicly accessible hosted image. In reality, this will be quite of its own challenge to solve, uploading images, building mechanisms to only allow certain users to access them, etc.
 
+## Bonus
+If each brand has its own properties, we could have an entity (aka DB table) called `BrandProperty` in which we could have a one-to-many relationship between a brand and its own set of properties. Then another entity, called `ProductProperty` where each property can set individual properties, based on what properties are available to it according to the product's brand.
 
+I will include a simple ERD diagram in my submission email.
+ 
