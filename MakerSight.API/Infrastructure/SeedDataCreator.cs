@@ -6,6 +6,11 @@ namespace MakerSight.API.Infrastructure
     {
 
         // just creating some hard coded IDs, which will be used for seeding in-memory data as well as facilitating testing
+        public static Guid[] BrandIds = new Guid[] {
+            Guid.Parse("17cff5bb-3f4c-4676-ab1b-a177fd9aca25"),
+            Guid.Parse("78724c54-9f9b-4c0e-9d70-417f10a20f6c")
+        };
+
         public static Guid[] ProductIds = new Guid[] {
             Guid.Parse("62afc0a5-4715-4f5a-a3a9-3654c3393298"),
             Guid.Parse("387b907a-f64e-4fa0-a98d-2016e1a08039"),
@@ -13,10 +18,6 @@ namespace MakerSight.API.Infrastructure
             Guid.Parse("b1d5cb42-03c5-4bdc-8d8b-91d18727f261")
         };
 
-        public static Guid[] BrandIds = new Guid[] {
-            Guid.Parse("17cff5bb-3f4c-4676-ab1b-a177fd9aca25"),
-            Guid.Parse("78724c54-9f9b-4c0e-9d70-417f10a20f6c")
-        };
 
         public static void AddSeedBrandsData(AppDbContext context)
         {
